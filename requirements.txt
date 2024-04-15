@@ -20,4 +20,4 @@ pdfminer.six
 opencv-python
 duckduckgo-search
 moviepy
-chromadb
+chromadb==0.3.29
