@@ -13,6 +13,7 @@ langgraph
 matplotlib
 langchain_experimental
 langchain-openai
+langchain_community
 unstructured
 pdf2image
 pdfminer.six
