@@ -38,11 +38,13 @@ if api_key:
 
 embedding_function = OpenAIEmbeddings()
 
-loader = CSVLoader("./raw_data.csv", encoding="windows-1252")
-documents = loader.load()
-
-db = Chroma.from_documents(documents, embedding_function)
-retriever = db.as_retriever()
+@st.cache()
+def create_retriever():
+    loader = CSVLoader("./raw_data.csv", encoding="windows-1252")
+    documents = loader.load()
+    db = Chroma.from_documents(documents, embedding_function)
+    retriever = db.as_retriever()
+    return retriever
 
 class GradeDocuments(BaseModel):
     """Binary score for relevance check on retrieved documents."""
